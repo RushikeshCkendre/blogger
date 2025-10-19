@@ -1,5 +1,6 @@
 package io.mountblue.blogger.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -36,6 +37,7 @@ public class Tag {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "tags")
     private Set<Post> posts = new HashSet<>();
 

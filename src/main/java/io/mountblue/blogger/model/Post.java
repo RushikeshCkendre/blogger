@@ -1,6 +1,7 @@
 package io.mountblue.blogger.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -52,9 +53,11 @@ public class Post {
     @Column
     private String author;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToMany()
     @JoinTable(
             name = "post_tags",
@@ -65,6 +68,7 @@ public class Post {
     @Transient
     private String tagAssister;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

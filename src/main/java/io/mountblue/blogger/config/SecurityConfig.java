@@ -35,6 +35,10 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/posts/update/**", "/posts/delete/**").hasAnyRole("AUTHOR", "ADMIN")
                 .requestMatchers(HttpMethod.POST, "/comments/add/**").permitAll()
                 .requestMatchers("/register").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/posts", "/api/posts/filter", "/api/posts/{id:\\d+}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/posts/new", "/api/posts/save").hasAnyRole("AUTHOR", "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/posts/update/**", "/api/posts/delete/**").hasAnyRole("AUTHOR", "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/comments/add/**").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(form ->
                 form

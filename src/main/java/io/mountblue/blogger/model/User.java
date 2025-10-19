@@ -1,5 +1,6 @@
 package io.mountblue.blogger.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.mountblue.blogger.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,6 +30,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts = new ArrayList<>();
 
