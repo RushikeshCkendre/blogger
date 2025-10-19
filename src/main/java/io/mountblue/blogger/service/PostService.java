@@ -165,7 +165,7 @@ public class PostService {
 
         if (isAuthor(authentication)) {
             post.setAuthor(username);
-            post.setUser(userRepository.findByUsername(username));
+            post.setUser(userRepository.findByName(username));
         }
 
         return post;
