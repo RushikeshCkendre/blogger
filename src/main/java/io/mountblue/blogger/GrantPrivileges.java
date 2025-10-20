@@ -7,9 +7,9 @@ import java.sql.Statement;
 public class GrantPrivileges {
 
     public static void main(String[] args) {
-        String url = "jdbc:mysql://root:fiaUVTtqFHekuNDcKJgyEHhdoLEMHhtM@interchange.proxy.rlwy.net:53530/railway";
+        String url = "jdbc:mysql://root:fiaUVTtqFHekuNDcKJgyEHhdoLEMHhtM@interchange.proxy.rlwy.net:41662/railway";
         String user = "root";
-        String password = "fiaUVTtqFHekuNDcKJgyEHhdoLEMHhtM";
+        String password = "htYpsbkXXRjxwPUJjyGNKTWpHsztKLyw";
 
         String grantSQL = "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'manager' WITH GRANT OPTION;";
         String flushSQL = "FLUSH PRIVILEGES;";
