@@ -14,7 +14,6 @@
 <div th:if="${authentication} == null">
     <a th:href="@{/login}"
     >login</a>
-
 </div>
 <h1>Blogger</h1>
 
@@ -38,6 +37,9 @@
                 <span th:text="${author}">Author</span>
             </label>
         </div>
+        <div style="text-align: center;">
+            <button type="submit" style="padding: 0.5em 1em;">apply</button>
+        </div>
     </div>
 
     <!-- Tags Checkboxes -->
@@ -50,6 +52,9 @@
                        th:checked="${selectedTags != null && selectedTags.contains(tag.name)}"/>
                 <span th:text="${tag.name}">Tag</span>
             </label>
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" style="padding: 0.5em 1em;">Search</button>
         </div>
     </div>
 
